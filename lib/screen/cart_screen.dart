@@ -91,7 +91,7 @@ class CartScreen extends StatelessWidget {
                               style: GoogleFonts.poppins(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
-                            Text("${Cart().deleveryFeeString}",
+                            Text("${state.cart.deleveryFeeString}",
                                 style: GoogleFonts.poppins(
                                     fontSize: 16, fontWeight: FontWeight.bold))
                           ],
@@ -107,7 +107,7 @@ class CartScreen extends StatelessWidget {
                               style: GoogleFonts.poppins(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
-                            Text("${Cart().subtotalString}",
+                            Text("${state.cart.subtotalString}",
                                 style: GoogleFonts.poppins(
                                     fontSize: 16, fontWeight: FontWeight.bold))
                           ],
@@ -140,7 +140,7 @@ class CartScreen extends StatelessWidget {
                                       style: GoogleFonts.poppins(
                                           color: Colors.white),
                                     ),
-                                    Text("${Cart().totalString}",
+                                    Text(state.cart.totalString,
                                         style: GoogleFonts.poppins(
                                             color: Colors.white))
                                   ],

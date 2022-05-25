@@ -10,7 +10,7 @@ class Cart extends Equatable {
 
 
   double deleveryfree(subtotal){
-    if(subtotal >= 200000){
+    if(subtotal >= 20000){
       return 0.0;
 
     }else
