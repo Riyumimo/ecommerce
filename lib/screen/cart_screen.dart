@@ -10,7 +10,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../blocs/bloc/cart_bloc.dart';
 
-
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);
   static const String routeName = '/cart';
@@ -65,10 +64,20 @@ class CartScreen extends StatelessWidget {
                         SizedBox(
                           height: 390,
                           child: ListView.builder(
-                            itemCount: state.cart.producst.length,
+                            itemCount: state.cart
+                                .productQuantity(state.cart.producst)
+                                .keys
+                                .length,
                             itemBuilder: (BuildContext context, int index) {
                               return CartProductCard(
-                                  productModel: state.cart.producst[index]);
+                                  productModel: state.cart
+                                      .productQuantity(state.cart.producst)
+                                      .keys
+                                      .elementAt(index),
+                                  quantity: state.cart
+                                      .productQuantity(state.cart.producst)
+                                      .values
+                                      .elementAt(index));
                             },
                           ),
                         )

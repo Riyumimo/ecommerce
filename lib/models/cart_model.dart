@@ -2,12 +2,31 @@ import 'package:ecommerce/models/product_model.dart';
 import 'package:equatable/equatable.dart';
 
 class Cart extends Equatable {
+
+
   const Cart({this.producst = const<ProductModel>[]});
   final List<ProductModel> producst;
 
 
-  double get subtotal => producst.fold(0, (total, current) => total + current.price);
+  @override
+  // TODO: implement props
+  List<Object?> get props => [producst];
 
+  Map productQuantity( producst){
+    var quantity = Map();
+
+    producst.forEach((product) {
+       if(!quantity.containsKey(product)){
+         quantity[product]=1;
+       }else{
+         quantity[product]+=1;
+       }
+     });
+
+     return quantity;
+  }
+
+  double get subtotal => producst.fold(0, (total, current) => total + current.price);
 
   double deleveryfree(subtotal){
     if(subtotal >= 20000){
@@ -38,9 +57,7 @@ class Cart extends Equatable {
 
 
 
-  @override
-  // TODO: implement props
-  List<Object?> get props => [producst];
+  
 
   
 }
