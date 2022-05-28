@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 class ProductModel extends Equatable {
@@ -17,6 +18,20 @@ class ProductModel extends Equatable {
       required this.isRecomended,
       required this.isPopular,
       required this.price});
+
+
+  static ProductModel fromSnapshot (DocumentSnapshot snapshot){
+    ProductModel productModel = ProductModel(
+    name: snapshot["name"], 
+    category: snapshot["category"],
+    imageUrl: snapshot["imageUrl"],
+    isRecomended: snapshot["isRecomended"],
+    isPopular: snapshot["isPopular"], 
+    price: snapshot["price"]
+    );
+
+    return productModel;
+  }
 
   @override
   List<Object?> get props =>  [name, category,imageUrl,price,isRecomended,isPopular];

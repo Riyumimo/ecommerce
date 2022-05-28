@@ -1,7 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'package:ecommerce/models/cart_model.dart';
-import 'package:ecommerce/models/product_model.dart';
 import 'package:ecommerce/widget/cart_product.dart';
 import 'package:ecommerce/widget/custom_appbar.dart';
 import 'package:flutter/material.dart';
@@ -100,7 +97,7 @@ class CartScreen extends StatelessWidget {
                               style: GoogleFonts.poppins(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
-                            Text("${state.cart.deleveryFeeString}",
+                            Text(state.cart.deleveryFeeString,
                                 style: GoogleFonts.poppins(
                                     fontSize: 16, fontWeight: FontWeight.bold))
                           ],

@@ -1,13 +1,16 @@
 import 'package:ecommerce/blocs/bloc/cart_bloc.dart';
 import 'package:ecommerce/blocs/wishlist/wishlist_bloc.dart';
 import 'package:ecommerce/config/app_routes.dart';
+import 'package:ecommerce/firebase_options.dart';
 import 'package:ecommerce/page/myhomepage.dart';
 import 'package:ecommerce/page/splash_screen_page.dart';
-import 'package:ecommerce/screen/home_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -21,13 +24,10 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => WishlistBloc()..add(StartWishList()),
-          
         ),
         BlocProvider(
           create: (context) => CartBloc()..add((LoadCart())),
-          
         ),
-       
       ],
       child: const MaterialApp(
         title: 'Flutter Demo',
