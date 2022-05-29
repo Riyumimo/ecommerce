@@ -7,7 +7,7 @@ class ProductModel extends Equatable {
   final String name;
   final String category;
   final String imageUrl;
-  final double price;
+  final int price;
   final bool isRecomended;
   final bool isPopular;
 
@@ -21,13 +21,15 @@ class ProductModel extends Equatable {
 
 
   static ProductModel fromSnapshot (DocumentSnapshot snapshot){
-    ProductModel productModel = ProductModel(
+    
+    ProductModel productModel =
+     ProductModel(
     name: snapshot["name"], 
     category: snapshot["category"],
     imageUrl: snapshot["imageUrl"],
     isRecomended: snapshot["isRecomended"],
     isPopular: snapshot["isPopular"], 
-    price: snapshot["price"]
+    price: snapshot["price"] ,
     );
 
     return productModel;
@@ -48,14 +50,7 @@ class ProductModel extends Equatable {
     "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-3464643/fanta_fanta-strawberry-can-minuman-ringan--330-ml-_full02.jpg",
      isRecomended: true, isPopular: true, price: 5600),
 
-    ProductModel(name:"Shoyu ramen" , category: "Ramen", imageUrl: 
-    "https://img-global.cpcdn.com/recipes/727a1a3e2dbd66b5/1200x630cq70/photo.jpg",
-     isRecomended: true, isPopular: false, price: 26000),
-
-    ProductModel(name:"Spicy Ramen" , category: "Ramen", imageUrl: 
-    "https://myspicetrunk.com/wp-content/uploads/2021/04/WhatsApp-Image-2021-04-15-at-2.30.17-PM-e1618525005703.jpeg?v=1618524592",
-     isRecomended: true, isPopular: false, price: 40000 ),
-
+  
     ProductModel(name:"Wagashi Mochi" , category: "Dessert", imageUrl: 
     "https://asset.kompas.com/crops/89IMgIKuW8Dp_Cltf6ZVPLwT7yg=/48x0:974x617/750x500/data/photo/2020/07/19/5f13e0e1c1866.jpg",
      isRecomended: true, isPopular: false, price: 65000),

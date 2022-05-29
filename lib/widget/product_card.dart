@@ -1,9 +1,9 @@
 
-import 'package:ecommerce/blocs/bloc/cart_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../blocs/cart/cart_bloc.dart';
 import '../blocs/wishlist/wishlist_bloc.dart';
 import '../models/product_model.dart';
 
@@ -28,7 +28,7 @@ class ProductCarousel extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {},
                 child: ProductCard(
-                  product: ProductModel.producst[index],
+                  product: product[index],
                   widthFactor: 2.5,
                 ),
               ),
@@ -89,7 +89,7 @@ class ProductCard extends StatelessWidget {
                           style: GoogleFonts.poppins(color: Colors.white),
                         ),
                         Text(
-                          "Rp ${product.price}",
+                          "Rp ${product.price.toDouble()}",
                           style: GoogleFonts.poppins(color: Colors.white),
                         ),
                       ],

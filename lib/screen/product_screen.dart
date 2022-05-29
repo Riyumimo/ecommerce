@@ -8,8 +8,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../blocs/bloc/cart_bloc.dart';
+import '../blocs/cart/cart_bloc.dart';
 import '../models/catergory_models.dart';
 
 class ProductScreen extends StatelessWidget {
